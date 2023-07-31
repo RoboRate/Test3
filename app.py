@@ -22,7 +22,7 @@ def login():
         password = request.form["password"]
 
         # 在這裡進行身分驗證，例如檢查使用者名稱和密碼是否匹配
-        if name == "ruckertext" and password == "123456789":
+        if name == "rucker" and password == "admin":
             session["logged_in"] = True
             return redirect(url_for("index"))
 
