@@ -3,17 +3,11 @@ from flask import Flask, redirect, render_template, request, session, url_for
 import openai
 import pymysql
 
-connection = pymysql.connect(
-    host='127.0.0.1',
-    user='rucker',
-    password='123456',
-    port=3306,
-    database='yes123'
-)
-
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 openai.api_key = os.getenv("OPENAI_API_KEY")
+UserAccount = os.getenv("USER_ACCOUNT")
+UserPassword = os.getenv("USER_PASSWORD")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -21,8 +15,8 @@ def login():
         name = request.form["name"]
         password = request.form["password"]
 
-        # 在這裡進行身分驗證，例如檢查使用者名稱和密碼是否匹配
-        if name == "rucker" and password == "admin":
+        # 身分驗證
+        if name == UserAccount and password == UserPassword:
             session["logged_in"] = True
             return redirect(url_for("index"))
 

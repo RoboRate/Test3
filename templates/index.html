@@ -5,11 +5,11 @@
     rel="shortcut icon"
     href="{{ url_for('static', filename='dog.png') }}"
   />
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
+  <img src="{{ url_for('static', filename='/images/dog.png') }}" class="icon" />
   <h3>Name my pet</h3>
   <form action="/" method="post">
     <input type="text" name="animal" placeholder="Enter an animal" required />
